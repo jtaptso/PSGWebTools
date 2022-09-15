@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Lagerbestand</title>
+</head>
+<body>
+  <!-- Scan Mode Switch -->
+  <div class="theme-switch-wrapper">
+    <span id="toggle-icon">
+        <span class="toggle-text">Scan Mode</span>
+        <i class="fas fa-sun"></i>
+    </span>
+    <label class="theme-switch">
+        <input type="checkbox">
+        <div class="slider round"></div>
+    </label>
+  </div>
+  <!-- Navigation -->
+  <nav id="nav">
+    
+  </nav>
+  <!-- Home Section -->
+  <section id="home">
+    <div class="title-group">
+        <h1 id="welcomeMsg">Lagerbestand web tool</h1>
+        <h2>This tool will help you get the inventory of items</h2>
+        <h3>Change the mode to enter the itemcode using the keyboard</h3>
+    </div>
+  </section>
+  <!-- About Section -->
+  <section id="about">
+    <div class="about-container">
+        <div class="get-lager">
+          <button id="getLagerBtn" class="buttons">Get Lagerbestand</button>
+        </div>
+        <div class="item-code">
+          <textarea class="itemtxtarea" contenteditable="true" id="txtAreaitemcode" type="text" placeholder="scan item to get itemcode" autofocus></textarea>
+        </div>
+        <div class="clear">
+          <button id="clearBtn" class="buttons">Clear</button>
+        </div>
+    </div>
+  </section>
+  <div class="lagerbestand-table" id="table"></div>
+  <script src="lagerbestand.js"></script>
+</body>
+</html>

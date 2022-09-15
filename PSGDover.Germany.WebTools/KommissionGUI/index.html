@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <div class="logo">
+                <div class="column">
+                    <img id="psgLogo" src="images/PSG.jpg" width="50%" alt="PSG">
+                </div>
+                <div class="column alm">
+                    <img id="almLogo" src="images/Almatec.jpg" width="70%" alt="Almatec">
+                </div>
+                <div class="column qf">
+                    <img id="qfLogo" src="images/Quattroflow.jpg" width="70%" alt="Quattroflow">
+                </div>
+                <div class="column hyd">
+                    <img id="HydLogo" src="images/Hydro Logo_No DOVER - Copy.png" width="70%" alt="Hydro">
+                </div>
+            </div>
+            <div id="greeting" hidden></div>
+            <div class="tab row">
+                <button class="tablinks" id="prodAuftTab" onclick="openTab(event, 'prodauftrag')">Produktionsauftrag</button>
+                <button class="tablinks" id="stueckTab" onclick="openTab(event, 'stuecklst')">Stückliste</button>
+                
+                <div id="logout">
+                    <button id="logoutBtn" class="btn status" hidden>Ausloggen</button>
+                </div>
+            </div>
+            <div id="prodauftrag" class="tabcontent">
+                <p id="welcomeMsg">Bitte geben Sie Ihre Schlüsselnummer ein</p> 
+                <div id="user" class="nummer box">
+                    <div>
+                        <input class="inp" type="text"  name="idNummer" placeholder="Schlüsselnummer" id="idNummer">
+                        <button id="clearIdBtn" class="btn"><i class="fa fa-close"></i></button>
+                    </div>
+                </div>
+                <div id="pa" class="Panummer box" hidden>
+                    <div>
+                        <input type="text" class="inp"  name="paNummer" placeholder="PA-Nummer" id="PaNr">
+                        <button id="clearPaBtn" class="btn"><i class="fa fa-close"></i></button>
+                    </div>
+                    <div id="paStatus">
+                        
+                    </div>
+                    <p id="output"></p>
+                </div>
+                <div>
+                    <button id="savePaBtn" class="btn status" hidden>Status speichern</button>
+                </div>
+            </div>
+            <div id="stuecklst" class="tabcontent">
+                <p>Bitte geben Sie eine Stücklistennummer ein.</p>
+                <div class="item-code box">
+                    <div>
+                        <input type="text" class="inp"  name="itemname" placeholder="Stücklistennummer" id="itemcode">
+                        <button id="clearBtn" class="btn"><i class="fa fa-close"></i></button>
+                    </div>
+                </div>
+                <ul class="stkliste" id="stkliste">
+                    
+                </ul> 
+            </div>
+        </div>
+    </div>
+    <script src="productionauftrag.js"></script>
+    <script src="stuecklist.js"></script>
+    
+</body>
+</html>

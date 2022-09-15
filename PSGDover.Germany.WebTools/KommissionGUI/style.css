@@ -1,0 +1,174 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* font-size: 2rem; */
+    /*padding: 5rem;*/
+    background-color: #ffffff;
+    /* margin: 0 8px; */
+}
+.content{
+    font-size: 2rem;
+    padding: 2rem 10rem;
+}
+.crossImage{
+    width: 100%;
+    height: auto;
+}
+.btn {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  .inp{
+    height: 42px;
+  }
+  .status{
+    background-color: RoyalBlue;
+  }
+.logo{
+    float: left;
+    /* margin: 0 10px; */
+}
+.alm{
+    margin-top: 20px;
+}
+
+.hyd{
+    margin-top: 10px;
+}
+img{
+    float: right;
+}
+#psgLogo{
+    float: left;
+}
+.column{
+    width: 25%;
+    float: left;
+}
+.row::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+.box{
+    position: inherit;
+    width: 500px;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+}
+#logout{
+    background-color: RoyalBlue;
+    float: right;
+}
+input{
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+input [type="text"]{
+    background: #fff;
+    width: 340px;
+    height: 50px;
+    border: none;
+    outline: none;
+    padding: 0 25px;
+    border-radius: 0 25px 25px 0 ;
+}
+
+input [type="submit"]{
+    position: relative;
+    left: -5px;
+    border-radius: 25px 0 0 25px;
+    width: 150px;
+    height: 50px;
+    border: none;
+    outline: none;
+    background: #0af;
+    color: #fff;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
+
+  /* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+ }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+ }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #ccc;
+ }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+ }
+
+ul{
+    list-style-type: none;
+}
+
+ .stk::before{
+    content: "\2610";
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+.stk.active {
+   /* text-decoration: line-through; */
+   color: rgb(165, 34, 34);
+} 
+  .stk.active::before {
+    content: "\2611";
+} 
+
+/* Toggler */
+.toggler::before{
+    content: "\25B6";
+    display: inline-block;
+    margin-right: 0.5rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.toggler.active::before{
+    transform: rotate(90deg);
+}
+
+.stkliste{
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.toggler-target{
+    display: none;
+}
+
+
+.toggler-target.active{
+    display: block;
+}

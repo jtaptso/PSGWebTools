@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styleTest.css">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td class="tab" id="content">
+                <div class="tab row">
+                    <button class="tablinks" id="prodAuftTab" onclick="openTab(event, 'prodauftrag')">Produktionsauftrag</button>
+                    <button class="tablinks" id="stueckTab" onclick="openTab(event, 'stuecklst')">Stückliste</button>
+                    
+                    <div id="logout">
+                        <button id="logoutBtn" class="btn status" hidden>Ausloggen</button>
+                    </div>
+                </div>
+            </td>
+            <td id="logo">
+                <div>
+                    <img id="psgLogo" src="images/PSG.jpg" alt="PSG">
+                </div>
+                <div>
+                    <img id="almLogo" src="images/Almatec.jpg" alt="Almatec">
+                </div>
+                <div>
+                    <img id="qfLogo" src="images/Quattroflow.jpg" alt="Quattroflow">
+                </div>
+                <div>
+                    <img id="HydLogo" src="images/Hydro Logo_No DOVER - Copy.png" alt="Hydro">
+                </div>
+            </td>
+        </tr>
+    </table>
+    <script src="productionauftrag.js"></script>
+    <script src="stuecklist.js"></script>
+    
+</body>
+</html>
