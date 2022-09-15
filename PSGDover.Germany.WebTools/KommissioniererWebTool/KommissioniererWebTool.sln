@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PsgSAPb1WebTools", "KomWebCore\PsgSAPb1WebTools.csproj", "{756A199A-13E3-4FB2-AA01-72E32D069AE9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProduktionAPI", "..\..\ProduktionAPI\ProduktionAPI\ProduktionAPI.csproj", "{BB29EDDF-FDBA-40D3-AA39-FB6D93EBE423}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProduktionAPI", "..\..\ProduktionAPI\ProduktionAPI\ProduktionAPI.csproj", "{BB29EDDF-FDBA-40D3-AA39-FB6D93EBE423}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{756A199A-13E3-4FB2-AA01-72E32D069AE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{756A199A-13E3-4FB2-AA01-72E32D069AE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{756A199A-13E3-4FB2-AA01-72E32D069AE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{756A199A-13E3-4FB2-AA01-72E32D069AE9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BB29EDDF-FDBA-40D3-AA39-FB6D93EBE423}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BB29EDDF-FDBA-40D3-AA39-FB6D93EBE423}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB29EDDF-FDBA-40D3-AA39-FB6D93EBE423}.Release|Any CPU.ActiveCfg = Release|Any CPU
