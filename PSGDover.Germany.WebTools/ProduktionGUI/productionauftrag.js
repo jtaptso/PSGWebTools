@@ -100,6 +100,7 @@ async function GetProduktionAuftrag() {
           }else{
             welcomeMsg.innerHTML = `<span style="color:red;font-weight:red;">Dieser Auftrag steht noch nicht zur Verfügung.</span>`;
             savePaBtn.disabled = true;
+            savePaBtn.style.opacity = 0.1;
           }
         } else {
           if (past >= 5) {
@@ -131,7 +132,7 @@ async function displayStatus(startindex, endIndex, selectedIndex) {
             inp.setAttribute("name", "status");
             inp.setAttribute("value", `${pa_status[index]}`);
             di.setAttribute("id", "spStat");
-            
+            savePaBtn.style.opacity = 1;
             var id = `${index+1}`;
             var lval = `<span style="font-weight:bold font-size: 10px;">${pa_status[index]}</span>`
             if(selectedIndex === Number(id)){
@@ -144,6 +145,7 @@ async function displayStatus(startindex, endIndex, selectedIndex) {
             di.append(lab);
             paStatus.append(di);
           }
+          savePaBtn.disabled = false;
           welcomeMsg.innerHTML = `<span style="color:blue;font-weight:bold;">Gewählter Status:</span>`;
 }
 

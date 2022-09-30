@@ -71,61 +71,67 @@ namespace ProduktionAPI.BLL
                         {
                             pOrder.UserFields.Fields.Item("U_PG_PR").Value = MonteurCode.ToString();
                         }
-                        
+                        var minDt = 0;
                         switch (PaStatus)
                         {
                             case 2:
                                 {
-                                    var dt = pOrder.UserFields.Fields.Item("U_PG_DMoE").Value;
-                                    var minDt = dt.Year;
-                                    if (minDt < 1990)
-                                    {
-                                        pOrder.UserFields.Fields.Item("U_PG_DMoE").Value = DateTime.Now.ToLocalTime();
-                                    }
+                                    //var dt = pOrder.UserFields.Fields.Item("U_PG_DMoE").Value;
+                                    //minDt = dt.Year;
+                                    //if (minDt < 1990)
+                                    //{
+                                    //    pOrder.UserFields.Fields.Item("U_PG_DMoE").Value = DateTime.Now.ToLocalTime();
+                                    //}
+                                    pOrder.UserFields.Fields.Item("U_PG_DMoE").Value = DateTime.Now.ToLocalTime();
                                     break;
                                 }
                             case 3:
                                 {
-                                    var dt = pOrder.UserFields.Fields.Item("U_PG_DMoG").Value;
-                                    var minDt = dt.Year;
-                                    if (minDt < 1990)
-                                    {
-                                        pOrder.UserFields.Fields.Item("U_PG_DMoG").Value = DateTime.Now.ToLocalTime();
-                                    }
+                                    //var dt = pOrder.UserFields.Fields.Item("U_PG_DMoG").Value;
 
+                                    //if(!string.IsNullOrEmpty(dt))
+                                    //    minDt = Convert.ToDateTime(dt).Year;
+                                    //if (minDt < 1990)
+                                    //{
+                                    //    pOrder.UserFields.Fields.Item("U_PG_DMoG").Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                                    //}
+                                    pOrder.UserFields.Fields.Item("U_PG_DMoG").Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                                     break;
                                 }
                             case 4:
                                 {
-                                    var dt = pOrder.UserFields.Fields.Item("U_PG_DMoU").Value;
-                                    var minDt = dt.Year;
-                                    if (minDt < 1990)
-                                    {
-                                        pOrder.UserFields.Fields.Item("U_PG_DMoU").Value = DateTime.Now.ToLocalTime();
-                                    }
-
+                                    //var dt = pOrder.UserFields.Fields.Item("U_PG_DMoU").Value;
+                                    //if (!string.IsNullOrEmpty(dt))
+                                    //    minDt = Convert.ToDateTime(dt).Year;
+                                    //if (minDt < 1990)
+                                    //{
+                                    //    pOrder.UserFields.Fields.Item("U_PG_DMoU").Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                                    //}
+                                    pOrder.UserFields.Fields.Item("U_PG_DMoU").Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                                     break;
                                 }
                             case 5:
                                 {
-                                    var dt = pOrder.UserFields.Fields.Item("U_PG_DMoA").Value;
-                                    var minDt = dt.Year;
-                                    if (minDt < 1990)
-                                    {
-                                        pOrder.UserFields.Fields.Item("U_PG_DMoA").Value = DateTime.Now.ToLocalTime();
-                                    }
-
+                                    //var dt = pOrder.UserFields.Fields.Item("U_PG_DMoA").Value;
+                                    //if (!string.IsNullOrEmpty(dt))
+                                    //    minDt = Convert.ToDateTime(dt).Year;
+                                    //if (minDt < 1990)
+                                    //{
+                                    //    pOrder.UserFields.Fields.Item("U_PG_DMoA").Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                                    //}
+                                    pOrder.UserFields.Fields.Item("U_PG_DMoA").Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                                     break;
                                 }
                             case 6:
                                 {
-                                    var dt = pOrder.UserFields.Fields.Item("U_PG_DPrA").Value;
-                                    var minDt = dt.Year;
-                                    if (minDt < 1990)
-                                    {
-                                        pOrder.UserFields.Fields.Item("U_PG_DPrA").Value = DateTime.Now.ToLocalTime();
-                                    }
-
+                                    //var dt = pOrder.UserFields.Fields.Item("U_PG_DPrA").Value;
+                                    //if (!string.IsNullOrEmpty(dt))
+                                    //    minDt = Convert.ToDateTime(dt).Year;
+                                    //if (minDt < 1990)
+                                    //{
+                                    //    pOrder.UserFields.Fields.Item("U_PG_DPrA").Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                                    //}
+                                    pOrder.UserFields.Fields.Item("U_PG_DPrA").Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                                     break;
                                 }
                             default:

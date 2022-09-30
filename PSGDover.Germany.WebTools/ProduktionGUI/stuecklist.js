@@ -1,7 +1,8 @@
 const tabStueckliste = document.getElementById('stueckTab');
+const subtitle = document.getElementById('stkMsg');
 const txtItem = document.getElementById('itemcode');
 const clearBtn = document.getElementById('clearBtn');
-//const getStueckListeBtn = document.getElementById('getStueckListe');
+const loader = document.getElementById('loader');
 let stkliste = document.querySelectorAll(".stk");
 let togglers = document.querySelectorAll(".toggler"); 
 //var togglers =  document.getElementsByClassName(".toggler");
@@ -28,50 +29,69 @@ stkliste.forEach((stk) => {
 async function getStueckliste() {
     // Get the itemcode entered in the textbox
     itCode = txtItem.value;
-    //BOM?itemcode=
+    parentItem.innerHTML = "";
     
     try {
         if(itCode != ""){
             const apiUrlTest = `http://localhost:5000/SAPb1/BOM/${itCode}`;
             const apiUrl = `http://psg-ger-sap:8082/BOM?itemcode=${itCode}`;
             const newUrl = `http://localhost:5234/BOM?itemcode=${itCode}`
-            parentItem.replaceChildren();
-            const response = await fetch(newUrl);
-            Oitem = await response.json();
             
-            var parent = document.createElement('Li');
-            var divParent = document.createElement('div');
-            divParent.className = 'toggler';
-            divParent.innerText = Oitem.itemNummer;
-            parent.append(divParent);
-            var ul_level1 = document.createElement('ul');
-            ul_level1.className = "toggler-target";
-            console.log(Oitem.children);
-            GetChildren(ul_level1, Oitem.children)
-            parent.append(ul_level1);
-            parentItem.append(parent);
-            togglers = document.querySelectorAll(".toggler");
-            stkliste = document.querySelectorAll(".stk");
+            //parentItem.replaceChildren();
+            parentItem.innerHTML = "";
+            loader.hidden = false;
+            const response = await fetch(newUrl);
+            
+            Oitem = await response.json();
+            if(Oitem.father)
+            {
+                parentItem.innerHTML = "";
+                //subtitle.innerText = 'Bitte geben Sie eine Stuecklistennummer ein.';
+                var parent = document.createElement('Li');
+                var divParent = document.createElement('div');
+                divParent.className = 'toggler';
+                divParent.innerHTML = `<span style="color:blue;font-weight:bold;">${Oitem.itemNummer}</span>`; //Oitem.itemNummer;
+                parent.append(divParent);
+                var ul_level1 = document.createElement('ul');
+                ul_level1.className = "toggler-target";
+                GetChildren(ul_level1, Oitem.children)
 
-            togglers.forEach((toggler) => {
-                toggler.addEventListener('click', () => {
-                    toggler.classList.toggle("active");
-                    toggler.nextElementSibling.classList.toggle("active");
+                loader.hidden = true;
+
+                parent.append(ul_level1);
+                parentItem.append(parent);
+
+                txtItem.value = '';
+                txtItem.focus();
+
+                togglers = document.querySelectorAll(".toggler");
+                stkliste = document.querySelectorAll(".stk");
+
+                togglers.forEach((toggler) => {
+                    toggler.addEventListener('click', () => {
+                        toggler.classList.toggle("active");
+                        toggler.nextElementSibling.classList.toggle("active");
+                    });
                 });
-            });
 
-            stkliste.forEach((stk) => {
-                stk.addEventListener('click', () => {
-                    stk.classList.toggle("active");
+                stkliste.forEach((stk) => {
+                    stk.addEventListener('click', () => {
+                        stk.classList.toggle("active");
+                    });
                 });
-            });
 
+                
+            }
+            else{
+                subtitle.innerHTML = '<span style="color:red;font-weight:bold;font-size: 15px;">Item nicht gefunden !!.</span>'
+                loader.hidden = true;
+            } 
         }else {
             errmsg = 'Please make sure the itemcode really exists!';
             alert(errmsg);
         }
     } catch (error) {
-        alert(error);
+        console.log(error);
     }
 }
 
@@ -97,11 +117,12 @@ function GetChildren(ulParent, childrenList){
 
 
 //getStueckListeBtn.addEventListener('click', getStueckliste);
-txtItem.addEventListener('input', getStueckliste);
+txtItem.addEventListener('change', getStueckliste);
 clearBtn.addEventListener('click', () => {
 	txtItem.value = '';
     parentItem.replaceChildren();
     txtItem.focus();
+    subtitle.innerText = 'Bitte geben Sie eine Stuecklistennummer ein.';
 });
 tabStueckliste.addEventListener('click', () => {
     txtItem.focus();

@@ -21,6 +21,10 @@ namespace ProduktionAPI.BLL
                 if (SAPBOne.IsConnected)
                 {
                     var parent = new BillOfMaterial { ItemNummer = ItemCode, level = 1, Father = ItemCode };
+                    if (FirstParentExists(ItemCode))
+                    {
+                        return new BillOfMaterial();
+                    }
                     item.StueckListe = new List<BillOfMaterial>();
                     var tChil = GetChildren(parent);
                     item.Parent = parent;
@@ -86,6 +90,17 @@ namespace ProduktionAPI.BLL
             itemParent.Children = children;
             item.StueckListe.Add(itemParent);
             return children;
+        }
+
+        private bool FirstParentExists(string ItemNummer)
+        {
+            Recordset oRecordSet;
+            oRecordSet = SAPBOne.Company.GetBusinessObject(BoObjectTypes.BoRecordset);
+            string query = $"SELECT T1.Code, T1.ItemName, T1.Quantity,T2.[U_PG_QFLP] FROM OITT T0 INNER JOIN ITT1 T1 ON T0.Code = T1.Father " +
+                           $"INNER JOIN OITM T2 ON T1.[Code] = T2.[ItemCode] " +
+                           $"WHERE T0.Code = '{ItemNummer}'";
+            oRecordSet.DoQuery(query);
+            return oRecordSet.RecordCount == 0;
         }
     }
 }
